@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Home, MessageSquare, Phone, LogOut, User } from 'lucide-react';
+import Logo from "./Home/Parihar_logo.png";
 
 interface UserData {
   firstName: string;
@@ -28,34 +29,31 @@ const Navbar: React.FC<NavbarProps> = ({ onLogout, userData }) => {
   };
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-black shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/dashboard" className="flex items-center">
-                <span className="text-2xl font-bold text-green-600">Parihar</span>
-                <span className="text-2xl font-bold text-orange-500">India</span>
-              </Link>
+            <img src={Logo} alt="Parihar India" className="h-32 w-auto" />
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
             <Link
                 to="/"
                 className={`${
                   isActive('/')
-                    ? 'border-green-500 text-gray-900'
-                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                    ? 'border-green-500 text-green-500'
+                    : 'border-transparent text-white hover:border-green-500 hover:text-green-500'
                 } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
               >
-                <Home className="mr-1 h-4 w-4" />
+                <Home className="mr-1 h-4 w-4 text white" />
                 Home
               </Link>
               <Link
                 to="/dashboard"
                 className={`${
                   isActive('/dashboard')
-                    ? 'border-green-500 text-gray-900'
-                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                    ? 'border-green-500 text-green-500'
+                    : 'border-transparent text-white hover:border-green-500 hover:text-green-500'
                 } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
               >
                 <Home className="mr-1 h-4 w-4" />
@@ -65,8 +63,8 @@ const Navbar: React.FC<NavbarProps> = ({ onLogout, userData }) => {
                 to="/feedback"
                 className={`${
                   isActive('/feedback')
-                    ? 'border-green-500 text-gray-900'
-                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                    ? 'border-green-500 text-green-500'
+                    : 'border-transparent text-white hover:border-green-500 hover:text-green-500'
                 } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
               >
                 <MessageSquare className="mr-1 h-4 w-4" />
@@ -76,8 +74,8 @@ const Navbar: React.FC<NavbarProps> = ({ onLogout, userData }) => {
                 to="/contact"
                 className={`${
                   isActive('/contact')
-                    ? 'border-green-500 text-gray-900'
-                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                    ? 'border-green-500 text-green-500'
+                    : 'border-transparent text-white hover:border-green-500 hover:text-green-500'
                 } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium`}
               >
                 <Phone className="mr-1 h-4 w-4" />
@@ -94,7 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLogout, userData }) => {
                 <div className="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-bold mr-2">
                   {userData.firstName ? userData.firstName.charAt(0).toUpperCase() : 'U'}
                 </div>
-                <span>{userData.firstName || 'User'}</span>
+                <span className='text-green-500'>{userData.firstName || 'User'}</span>
               </button>
               
               {profileDropdown && (
